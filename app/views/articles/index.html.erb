@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h1>Key Note</h1>
+<p>Save it now<p>
+<hr>
+<p>
+  <%= link_to 'New Article', new_article_path, :class=>"btn btn-primary" %>
+</p>
+<% @articles.each do |article| %>
+  <div class="card text-xs-left">
+    <div class="card-block">
+      <h4 class="card-title">
+        <%= article.title %>
+      </h4>
+      <p class="card-text">
+        <%= @markdown.render(article.body).html_safe %>
+      </p>
+    </div>
+    <div class="card-footer text-xs-right">
+      <%= link_to 'Show', article , :class=>"btn btn-success" %>
+      <%= link_to 'Edit', edit_article_path(article) , :class=>"btn btn-warning" %>
+    </div>
+  </div>
+<% end %>
+<!-- <%= will_paginate @articles %> -->
+<div class="row margin-twenty5-zero margin-b-zero pagination-row">
+  <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
+    <ul class="pagination">
+      <li class="disabled"><%= will_paginate(@articles,:previous_label => "&laquo;", :next_label => "&raquo;",:class=>"small-font", :outer_window => 1,:inner_window => 0) %></li>
+    </ul>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
+    <span class="pull-right"><%= page_entries_info(@articles) %></span> 
+  </div>
+</div>
+
