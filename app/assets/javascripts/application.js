@@ -15,12 +15,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$("#articles").append("<%= escape_javascript render( @articles) %>");
-
-// Hide link if it is last page otherwise update link
-<% if @articles.total_pages == @articles.current_page %>
-    $("#show_more_link").hide();
-<% else %>
-    $("#show_more_link").attr("href", "<%= method_that_returns_products_path(:sort => sort_column, :direction => sort_direction, :page => (@articles.current_page + 1)) %>");
-<% end %>

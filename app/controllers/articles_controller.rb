@@ -55,16 +55,12 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1
   # DELETE /articles/1.json
-  # def destroy
-  #   @article.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to @article, notice: 'Article was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
   def destroy
-    @transaction.destroy
-    redirect_to root_path
+    @article.destroy
+    respond_to do |format|
+      format.html { redirect_to :back , notice: 'Article was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
