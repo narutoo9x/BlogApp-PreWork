@@ -18,6 +18,8 @@ group :development do
   gem 'web-console'
 end
 
+gem 'rails_12factor', group: 'production'
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # add
 gem 'bootstrap', '~> 4.0.0.alpha4'
