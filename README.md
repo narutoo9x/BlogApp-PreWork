@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](..\app\assets\images\csblog-prework.gif)
+![Video Walkthrough](BlogApp-PreWork/app/assets/images/csblog-prework.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
