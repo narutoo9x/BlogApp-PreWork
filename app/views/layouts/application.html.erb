@@ -3,31 +3,24 @@
   <head>
     <title>Blogapp</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   </head>
-
+ 
   <body>
-      <!-- begin navbar -->
-      <nav class="navbar navbar-light bg-faded">
-        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapsedata" aria-controls="collapsedata" aria-expanded="false" aria-label="Key Note">
-          &#9776;
-        </button>
-        <div class="collapse navbar-toggleable-xs" id="collapsedata">
-          <a class="navbar-brand" href="/"></> Key Note</a>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-          </ul>
+      <div class="nav custom_nav custom">
+        <div class="wrapper">
+          <div id="logo">
+            <%= link_to 'KeyNote', root_path %>
+          </div>
+          <div id="buttons">
+            <%= link_to 'New Article', new_article_path %>
+          </div>
         </div>
-      </nav>
-      <!-- end navbar -->
-      <div class="container">
+      </div>
+      <div class="wrapper">
         <%= yield %>
       </div>
   </body>

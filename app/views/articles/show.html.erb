@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div class="card">
-  <div class="card-header">
-    <%= @article.title %>
-  </div>
+  <h3>
+    <div class="card-header">
+      <%= @article.title %>
+    </div>
+  </h3>
   <div class="card-block">
-    <p class="card-text">
+    <p class="card-text article-content">
       <%= @markdown.render(@article.body).html_safe %>
     </p>
   </div>
