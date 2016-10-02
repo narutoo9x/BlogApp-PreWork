@@ -24,12 +24,14 @@
         <i class="fa fa-commenting-o" aria-hidden="true"></i>
       <% end %>
     </div>
-      <%= render @article.comments %>
+    <div class="clearfix" style="padding: 1em;">
+          <%= "#{@article.impressionist_count} views" %>
+    </div>
+    <%= render @article.comments %>
     <hr>
     <h3>Add a comment:</h3>
-      <%= render "comments/form" %>
-      </div>
-
+    <%= render "comments/form" %>
+    </div>
 <div class="text-xs-right">
   <%= link_to 'Edit', edit_article_path(@article), :class=>"btn btn-warning "%>
   <%= link_to 'Back', root_path , :class=>"btn btn-link" %>

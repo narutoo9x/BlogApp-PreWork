@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote]
-
+  impressionist actions: [:show], unique: [:session_hash]
+  
   def search
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
@@ -22,6 +23,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    @article = Article.find(params[:id])
+    impressionist(@article)
   end
 
   # GET /articles/new
