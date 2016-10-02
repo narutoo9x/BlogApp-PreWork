@@ -1,27 +1,36 @@
 <p id="notice"><%= notice %></p>
-<h1>Key Note</h1>
-<p>Save it now<p>
-<hr>
 <p>
   <%= link_to 'New Article', new_article_path, :class=>"btn btn-primary" %>
 </p>
 <% @articles.each do |article| %>
   <div class="card text-xs-left">
     <div class="card-block">
-      <h4 class="card-title">
-        <%= article.title %>
-      </h4>
+      <h3 class="card-title">
+        <div class="row">
+          <div class="col-xs-11">
+            <%= link_to(article.title, article) %>
+          </div>
+          <div class="col-xs-1">
+            <%= link_to edit_article_path(article) do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <% end %>
+            <%= link_to article, method: :delete, data: {confirm: 'Are you sure?'} do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %>
+          </div>
+      </h3>
+      <hr>
       <p class="card-text">
         <%= @markdown.render(article.body).html_safe %>
       </p>
     </div>
-    <div class="card-footer text-xs-right">
-      <%= link_to 'Show', article , :class=>"btn btn-success" %>
-      <%= link_to 'Edit', edit_article_path(article) , :class=>"btn btn-warning" %>
-      <%= link_to 'Delete', article, :method => :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    <div class="card-footer">
+        <p class="text-xs-right"><%= time_ago_in_words(article.created_at) %></p>
     </div>
   </div>
 <% end %>
+
+
 <!-- <%= will_paginate @articles %> -->
 <div class="row margin-twenty5-zero margin-b-zero pagination-row">
   <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
