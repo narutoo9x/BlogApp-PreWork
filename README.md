@@ -4,7 +4,7 @@
 
 Submitted by: **Thanh Ngo Khac**
 
-Time spent: **24** hours spent in total
+Time spent: **20** hours spent in total
 
 URL: **https://keynote-cs.herokuapp.com*
 
@@ -25,8 +25,6 @@ The following **optional** features are implemented:
 * [x] User can leave a comment on a post.
 * [ ] User can add "tags" to a post, and filter posts by tag. 
 
-> HINT: if you are unsure how to implement the Search feature, you can Google how to implement a simple search form. For example, one of the sites you will find is [this](http://www.jorgecoca.com/buils-search-form-ruby-rails/)
-
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
@@ -36,11 +34,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-> HINT: You can put a `walkthrough.gif` file in your project folder, add to git, and use the following syntax to embed it:  
-> `![Video Walkthrough](walkthrough.gif)` 
-> 
-
-![Video Walkthrough](/path/to/your/gif/file)
+![Video Walkthrough](http://imgur.com/p2EsQ49)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
