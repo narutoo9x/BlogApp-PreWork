@@ -1,0 +1,1 @@
+ENV["ELASTICSEARCH_URL"] = "http://paas:d02a7f227ef61d04d9f4204196ff3bf2@dori-us-east-1.searchly.com"

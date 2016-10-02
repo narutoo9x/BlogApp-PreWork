@@ -182,6 +182,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha4)
   byebug
   coffee-rails (~> 4.2)
+  elasticsearch (>= 1.0.15)
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails

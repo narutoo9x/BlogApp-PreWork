@@ -28,7 +28,7 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.3'
 gem 'font-awesome-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'searchkick'
-
+gem "elasticsearch", ">= 1.0.15"
 
 source 'http://insecure.rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
