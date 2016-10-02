@@ -20,7 +20,6 @@
           </div>
         </div>
       </div>
-      <% if current_page?(root_path) %>
         <div class="nav navbar-nav wrapper">
           <%= form_tag search_articles_path, method: :get, class: "navbar-form ", role: "search" do %>
             <div class="input-group">
@@ -37,7 +36,6 @@
             </div>
           <% end %>
         </div>
-      <% end %>
       <div class="wrapper">
         <%= yield %>
       </div>
