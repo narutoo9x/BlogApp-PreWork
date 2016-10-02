@@ -26,5 +26,7 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'will_paginate', '~> 3.1', '>= 3.1.3'
 gem 'font-awesome-rails'
-gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
