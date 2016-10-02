@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
   acts_as_votable
-  has_many :comments
+  searchkick
+  has_many :comments, dependent: :destroy
 end

@@ -1,6 +1,15 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote]
 
+  def search
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    if params[:search].present?
+      @articles = Article.search(params[:search])
+    else
+      @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+    end
+  end
+
   # GET /articles
   # GET /articles.json
   def index
@@ -62,7 +71,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

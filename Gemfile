@@ -27,6 +27,9 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'will_paginate', '~> 3.1', '>= 3.1.3'
 gem 'font-awesome-rails'
 gem 'acts_as_votable', '~> 0.10.0'
-source 'https://rails-assets.org' do
+gem 'searchkick'
+
+
+source 'http://insecure.rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end

@@ -3,5 +3,4 @@
   <%= render 'form', article: @article %>
 
   <%= link_to 'Show', @article, class: 'btn btn-default' %> |
-  <%= link_to 'Back', articles_path, class: 'btn btn-default' %> 
-  <!-- <%= link_to "Delete", articles_path , method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-default' %> -->
+  <%= link_to 'Back', article_path(@article) , class: 'btn btn-default' %> 

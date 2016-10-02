@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div id="article">
   <% @articles.each do |article| %>
     <div class="card text-xs-left">
@@ -41,15 +40,3 @@
     </div>
   <% end %>
 </div>
-<!-- <%= will_paginate @articles %> -->
-<div class="row margin-twenty5-zero margin-b-zero pagination-row">
-  <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
-    <ul class="pagination">
-      <li class="disabled"><%= will_paginate(@articles,:previous_label => "&laquo;", :next_label => "&raquo;",:class=>"small-font", :outer_window => 1,:inner_window => 0) %></li>
-    </ul>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
-    <span class="pull-right"><%= page_entries_info(@articles) %></span> 
-  </div>
-</div>
-

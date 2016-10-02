@@ -1,14 +1,14 @@
 class CommentsController < ApplicationController
-  # before_action :set_article, only: [:create, :edit, :update, :destroy]
+  before_action :set_article, only: [:create, :edit, :update, :destroy]
   
   # def new
   #   @comment = Comment.new    
   # end
 
   def create
-    @article = Article.find(params[:article_id])
+    # @article = Article.find(params[:article_id])
     @comment = @article.comments.create(params[:comment].permit(:comment))
-    redirect_to articles_path(@article)
+    redirect_to :back
   end
 
   # def edit
@@ -29,8 +29,8 @@ class CommentsController < ApplicationController
   #   @comment.destroy
   #   redirect_to root_path
   # end
-  # private
-  # def set_article
-  #   @article = Article.find(params[:article_id])
-  # end
+  private
+  def set_article
+    @article = Article.find(params[:article_id])
+  end
 end

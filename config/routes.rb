@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :articles do
+    collection do
+      get 'search'
+    end
     member do
       put "like", to: "articles#upvote"
     end

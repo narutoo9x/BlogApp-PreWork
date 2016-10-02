@@ -29,12 +29,12 @@ body {
   #logo {
     float: left;
     text-transform: uppercase;
-      font-weight: 700;
-      padding-top: 1em;
-      font-size: 1.2rem;
-      text-decoration: none;
-      color: #397CAC;
-      background-color:000;
+    font-weight: 700;
+    padding-top: 1em;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #397CAC;
+    background-color:000;
   }
   #buttons {
     float: right;
@@ -71,9 +71,11 @@ body {
   border-radius: .5em;
 }
 
-#article-comments {
-  display: inline-block;
+.custom-search {
+  background-color: #000;
+  padding-left: 50px;
 }
-#article-like {
+
+.clearfix {
   display: inline-block;
 }
