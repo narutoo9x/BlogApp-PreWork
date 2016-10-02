@@ -6,7 +6,7 @@ Submitted by: **Thanh Ngo Khac**
 
 Time spent: **20** hours spent in total
 
-URL: **https://keynote-cs.herokuapp.com*
+URL: **https://keynote-cs.herokuapp.com**
 
 ## User Stories
 
