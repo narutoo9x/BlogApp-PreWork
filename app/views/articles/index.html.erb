@@ -24,6 +24,19 @@
         </p>
       </div>
       <div class="card-footer ">
+        <div id="article-like">
+          <%= link_to like_article_path(article), method: :put, class: "btn btn-default" do %>
+          <i class="fa fa-heart" aria-hidden="true">
+            <%= article.get_upvotes.size %>
+          </i>
+        <% end %> 
+        </div>
+        <div id="article-comments">
+          <%= article.comments.count %>
+          <%= link_to article do %>
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>

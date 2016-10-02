@@ -11,6 +11,12 @@
     </p>
   </div>
 </div>
+<div id="comments">
+  <%= render @article.comments %>
+  <h3>Add a comment:</h3>
+  <%= render "comments/form" %>
+</div>
+
 <div class="text-xs-right">
   <%= link_to 'Edit', edit_article_path(@article), :class=>"btn btn-warning "%>
   <%= link_to 'Back', articles_path, :class=>"btn btn-link" %>

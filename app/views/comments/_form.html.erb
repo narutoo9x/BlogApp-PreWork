@@ -1,0 +1,7 @@
+<%= form_for ([@article, @article.comments.build]) do |f| %>
+  <hr>
+  <div class="form-group">
+    <%= f.text_area :comment, class: "form-control" %>
+  </div>
+  <%= f.submit %>
+<% end %>

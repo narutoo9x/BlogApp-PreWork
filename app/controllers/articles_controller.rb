@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote]
 
   # GET /articles
   # GET /articles.json
@@ -39,6 +39,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def upvote
+    @article.upvote_by current_user
+    redirect_to :back
+  end
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
