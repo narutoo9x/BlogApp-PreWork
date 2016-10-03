@@ -1,7 +1,5 @@
 # Pre-work - *Key Note*
 
-**Name of your app** is a Ruby on Rails blog application.
-
 Submitted by: **Thanh Ngo Khac**
 
 Time spent: **24** hours spent in total
@@ -20,6 +18,7 @@ The following **required** functionality is complete:
 * [x] User can submit a search term to find all posts bywith titles containing the search term.
 
 The following **optional** features are implemented:
+
 * [x] There is a "navbar" that is responsive to window size similar to http://v4-alpha.getbootstrap.com/examples/navbar/. 
 * [x] User can see how many views a post has. 
 * [x] User can leave a comment on a post.
@@ -27,8 +26,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] - User can see when the article is posted.
+- [x] - User can see when the article and comment is posted.
 - [x] - Paginate.
+- [x] - User can like post.
+- [x] - User can leave a comment with a name.
 
 ## Video Walkthrough 
 
