@@ -4,7 +4,7 @@
 
 Submitted by: **Thanh Ngo Khac**
 
-Time spent: **20** hours spent in total
+Time spent: **24** hours spent in total
 
 URL: **https://keynote-cs.herokuapp.com**
 
@@ -23,12 +23,12 @@ The following **optional** features are implemented:
 * [x] There is a "navbar" that is responsive to window size similar to http://v4-alpha.getbootstrap.com/examples/navbar/. 
 * [x] User can see how many views a post has. 
 * [x] User can leave a comment on a post.
-* [ ] User can add "tags" to a post, and filter posts by tag. 
+* [x] User can add "tags" to a post, and filter posts by tag. 
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
 - [x] - User can see when the article is posted.
+- [x] - Paginate
 
 ## Video Walkthrough 
 
