@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
-<div class="card">
+<div class="card" id="article">
   <h3>
-    <div class="card-header">
+    <div class="card-title">
       <%= @article.title %>
     </div>
   </h3>
-  <div class="card-block">
+  <div class="card-block ">
     <p class="card-text article-content">
       <%= @markdown.render(@article.body).html_safe %>
     </p>
   </div>
-  <div class="card-footer ">
+  <div>
     <div class="clearfix">
       <%= link_to like_article_path(@article), method: :put, class: "btn btn-default" do %>
         <i class="fa fa-heart" aria-hidden="true">
@@ -25,21 +25,32 @@
       <% end %>
     </div>
     <div class="clearfix" style="padding: 1em;">
-          <%= "#{@article.impressionist_count} views" %>
+      <%= "#{@article.impressionist_count(:filter=>:session_hash)} views" %>
     </div>
     <div class="clearfix">
-          <%= raw @article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <%= raw @article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(' , ') %>
     </div>
-    <div class="tags-cloud glassy-bg clearfix">
-      <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
-        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-      <% end %>
-    </div>
+  </div>
+  <hr>
+  <div class="card-block">
+  <div id="comments" class="card-text article-content">
     <%= render @article.comments %>
-    <hr>
-    <h3>Add a comment:</h3>
+    
+    <h3 style="padding-top: 1em; padding-bottom: 0.5em;">Add a comment:</h3>
     <%= render "comments/form" %>
-    </div>
+  </div>
+  </div>
+  <div class=" clearfix tags-cloud glassy-bg" style="padding-top: 1em; padding-left: .5em">
+  <h4>TAGS: </h4>
+  <div>
+    <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
+</div>
+
+<hr>
+
 <div class="text-xs-right">
   <%= link_to 'Edit', edit_article_path(@article), :class=>"btn btn-warning "%>
   <%= link_to 'Back', root_path , :class=>"btn btn-link" %>

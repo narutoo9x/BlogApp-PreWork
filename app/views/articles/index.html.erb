@@ -1,54 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div id="article">
   <% @articles.each do |article| %>
-    <div class="card text-xs-left">
-      <div class="card-block article">
-        <h3 class="card-title">
-          <div class="row">
-            <div class="col-xs-10 title">
-              <%= link_to(article.title, article) %>
-            </div>
-            <div class="col-xs-2">
-              <%= link_to edit_article_path(article) do %>
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                <% end %>
-              <%= link_to article, method: :delete, data: {confirm: 'Are you sure?'} do %>
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-              <% end %>
-            </div>
-        </h3>
-        <p class="date"><%= time_ago_in_words(article.created_at) %></p>
-        <hr>
-        <p class="card-text article-content">
-          <%= @markdown.render(article.body).html_safe %>
-        </p>
-      </div>
-      <div class="card-footer ">
-        <div class="clearfix">
-          <%= link_to like_article_path(article), method: :put, class: "btn btn-default" do %>
-          <i class="fa fa-heart" aria-hidden="true">
-            <%= article.get_upvotes.size %>
-          </i>
-        <% end %> 
-        </div>
-        <div class="clearfix">
-          <%= link_to article do %>
-            <i class="fa fa-commenting-o" aria-hidden="true"></i>
-          <% end %>
-          <%= article.comments.count %>
-        </div>
-        <div class="clearfix" style="padding: 1em;">
-          <%= "#{article.impressionist_count} views" %>
-        </div>
-        <div class="clearfix">
-          <%=raw tag_links(article.all_tags)%>
-        </div>
-      </div>
-    </div>
+    <%= render 'template', article: article %>
   <% end %>
 </div>
-
-<!-- <div class="row margin-twenty5-zero margin-b-zero pagination-row">
+<div class="row margin-twenty5-zero margin-b-zero pagination-row">
   <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
     <ul class="pagination">
       <li class="disabled"><%= will_paginate(@articles,:previous_label => "&laquo;", :next_label => "&raquo;",:class=>"small-font", :outer_window => 1,:inner_window => 0) %></li>
@@ -57,4 +13,4 @@
   <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
     <span class="pull-right"><%= page_entries_info(@articles) %></span> 
   </div>
-</div> -->
+</div>

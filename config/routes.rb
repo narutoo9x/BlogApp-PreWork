@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
     member do
       put "like", to: "articles#upvote"
+      # put "dislike", to: "articles#downvote"
     end
     resources :comments
   end

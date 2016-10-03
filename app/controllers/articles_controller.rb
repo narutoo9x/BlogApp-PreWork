@@ -4,19 +4,39 @@ class ArticlesController < ApplicationController
 
   def search
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    # @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
     if params[:search].present?
-      @search_result = Article.search(params[:search])
-      @articles = @search_result.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+      @articles = Article.search params[:search], page: params[:page], per_page: 20
     else
-      @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+      @articles = Article.all.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
     end
   end
 
+  def upvote
+    @article = Article.find(params[:id])
+    session[:voting_id] ||= request.remote_ip
+    upvote = Session.find_or_create_by(ip: session[:voting_id])
+    @article.upvote_by upvote
+    flash[:message] = 'Thanks for liking!'
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
+  end
+
+  # def downvote
+  #   @article = Article.find(params[:id])
+  #   session[:voting_id] ||= request.remote_ip
+  #   downvote = Session.find(ip: session[:voting_id])
+  #   @article.downvote_from downvote
+
+  #   redirect_to :back
+  # end
   # GET /articles
   # GET /articles.json
   def index
     @articles = if params[:tag]
-      Article.tagged_with(params[:tag])
+      Article.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
     else
       Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
     end
@@ -56,11 +76,7 @@ class ArticlesController < ApplicationController
       end
     end
   end
-
-  def upvote
-    @article.upvote_by current_user
-    redirect_to :back
-  end
+  
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
