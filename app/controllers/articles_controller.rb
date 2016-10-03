@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote]
   impressionist actions: [:show], unique: [:session_hash]
-  
+
   def search
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
@@ -15,7 +15,11 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+    @articles = if params[:tag]
+      Article.tagged_with(params[:tag])
+    else
+      Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+    end
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
@@ -43,6 +47,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        format.js
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
@@ -88,6 +93,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :all_tags)
     end
 end

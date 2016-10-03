@@ -27,6 +27,14 @@
     <div class="clearfix" style="padding: 1em;">
           <%= "#{@article.impressionist_count} views" %>
     </div>
+    <div class="clearfix">
+          <%= raw @article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </div>
+    <div class="tags-cloud glassy-bg clearfix">
+      <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
     <%= render @article.comments %>
     <hr>
     <h3>Add a comment:</h3>

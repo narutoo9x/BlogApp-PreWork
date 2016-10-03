@@ -40,6 +40,9 @@
         <div class="clearfix" style="padding: 1em;">
           <%= "#{article.impressionist_count} views" %>
         </div>
+        <div class="clearfix">
+          <%=raw tag_links(article.all_tags)%>
+        </div>
       </div>
     </div>
   <% end %>

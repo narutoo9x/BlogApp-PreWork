@@ -29,7 +29,6 @@ gem 'font-awesome-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'searchkick'
 gem "elasticsearch", ">= 1.0.15"
-gem 'acts-as-taggable-on', '~> 4.0'
 gem 'impressionist'
 
 source 'http://insecure.rails-assets.org' do
