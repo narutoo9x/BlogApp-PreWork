@@ -4,11 +4,11 @@ class ArticlesController < ApplicationController
 
   def search
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-    @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
     if params[:search].present?
-      @articles = Article.search(params[:search])
+      @search_result = Article.search(params[:search])
+      @articles = @search_result.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
     else
-      @articles = Article.all
+      @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
     end
   end
 
