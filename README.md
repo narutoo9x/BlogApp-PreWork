@@ -28,7 +28,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] - User can see when the article is posted.
-- [x] - Paginate
+- [x] - Paginate.
 
 ## Video Walkthrough 
 
@@ -40,7 +40,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- It's quite difficult to push to heroku and make it run correctly.
+- I had some problem with destroying function because of bootstrap.
+- And I had a problem with assets precompile, I must precompile and then it will be beauties as I made.
+- Some
 
 ## License
 
