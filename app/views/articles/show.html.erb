@@ -25,7 +25,7 @@
       <% end %>
     </div>
     <div class="clearfix" style="padding: 1em;">
-      <%= "#{@article.impressionist_count(:filter=>:session_hash)} views" %>
+      <%= "#{@article.impressionist_count( :filter => :session_hash)} views" %>
     </div>
     <div class="clearfix">
       <%= raw @article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(' , ') %>

@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
     session[:voting_id] ||= request.remote_ip
     upvote = Session.find_or_create_by(ip: session[:voting_id])
     @article.upvote_by upvote
-    flash[:message] = 'Thanks for liking!'
     respond_to do |format|
       format.html { redirect_to :back }
       format.js
@@ -35,6 +34,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+    reset_session
     @articles = if params[:tag]
       Article.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
     else
